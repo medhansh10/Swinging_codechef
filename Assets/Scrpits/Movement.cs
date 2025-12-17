@@ -94,7 +94,7 @@ public class PlayerMovementGrappling : MonoBehaviour
         else
             rb.linearDamping = 0;
 
-        TextStuff();
+
     }
 
     private void FixedUpdate()
@@ -319,28 +319,15 @@ public class PlayerMovementGrappling : MonoBehaviour
         return velocityXZ + velocityY;
     }
 
-    #region Text & Debugging
+    
 
-    public TextMeshProUGUI text_speed;
-    public TextMeshProUGUI text_mode;
-    private void TextStuff()
-    {
-        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-
-        if (OnSlope())
-            text_speed.SetText("Speed: " + Round(rb.linearVelocity.magnitude, 1) + " / " + Round(moveSpeed, 1));
-
-        else
-            text_speed.SetText("Speed: " + Round(flatVel.magnitude, 1) + " / " + Round(moveSpeed, 1));
-
-        text_mode.SetText(state.ToString());
-    }
-
+    
+    
     public static float Round(float value, int digits)
     {
         float mult = Mathf.Pow(10.0f, (float)digits);
         return Mathf.Round(value * mult) / mult;
     }
 
-    #endregion
+    
 }
